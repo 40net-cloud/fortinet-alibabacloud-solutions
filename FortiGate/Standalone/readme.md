@@ -1,6 +1,6 @@
 # Alibaba Cloud FortiGate-VM Deployment with Terraform
 
-This repository contains Terraform configurations for setting up a Virtual Private Cloud (VPC) on Alibaba Cloud with a FortiGate instance. It includes VPC, VSwitches, Route Tables, Security Groups, and FortiGate instance provisioning.
+This repository contains Terraform configurations for deploying a FortiGate-VM instance with the required infrastructure. It includes VPC, VSwitches, Route Tables, Security Groups, and FortiGate instance provisioning.
 
 ## 📋 Table of Contents
 
@@ -19,8 +19,8 @@ This Terraform configuration automates the setup of a secure VPC environment on 
 - A VPC with an external and internal VSwitch.
 - Security groups with rules for both ingress and egress traffic.
 - Route tables and entries for traffic routing.
-- A FortiGate instance for enhanced security with an additional ENI (Elastic Network Interface).
-- User data configuration for FortiGate setup.
+- A FortiGate instance with 2x ENIs (Elastic Network Interface).
+- User data configuration for FortiGate initial setup.
 
 ## 🛠️ Architecture
 
@@ -36,7 +36,7 @@ coming soon
 
 ## 📝 Configuration
 
-Create a terraform.tfvars file to specify your configuration:
+Create a terraform.tfvars file to specify your configuration. You can check "terraform.tfvars.example" for guidance.
 
 ## 🚀 Usage
 
@@ -49,16 +49,7 @@ Run the following command to initialize the Terraform environment:
 ```bash
 terraform init
 ```
-
-### 2. Validate the Configuration
-
-To ensure the Terraform configuration files are correct, use:
-
-```bash
-terraform validate
-```
-
-### 3. Plan the Deployment
+### 2. Plan the Deployment
 
 Review the changes that Terraform will make without applying them yet:
 
@@ -66,7 +57,7 @@ Review the changes that Terraform will make without applying them yet:
 terraform plan
 ```
 
-### 4. Apply the Configuration
+### 3. Apply the Configuration
 
 Deploy the infrastructure with:
 
@@ -80,10 +71,9 @@ The -auto-approve flag automatically approves the changes, so you don't have to 
 
 This Terraform configuration creates the following Alibaba Cloud resources:
 
-- VPC: A new VPC with specified CIDR block.
+- VPC: A new VPC with a specified CIDR block.
 - VSwitches: External and internal VSwitches for network segmentation.
 - Security Groups: Rules for allowing all ingress and egress TCP traffic.
 - Route Table: A route table with a default route pointing to the FortiGate instance.
-- FortiGate Instance: A FortiGate instance with an attached ENI for internal traffic.
-- ENI: Elastic Network Interface attached to the FortiGate for internal network traffic.
-
+- FortiGate Instance: A FortiGate-VM instance with attached ENIs for inspecting traffic.
+- ENI: 2x Elastic Network Interfaces attached to the FortiGate for internal and external network traffic.
