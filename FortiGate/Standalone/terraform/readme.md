@@ -1,1 +1,1 @@
-
+This repository contains Terraform configurations for setting up a Virtual Private Cloud (VPC) on Alibaba Cloud with a FortiGate instance. It includes VPC, VSwitches, Route Tables, Security Groups, and FortiGate instance provisioning.
