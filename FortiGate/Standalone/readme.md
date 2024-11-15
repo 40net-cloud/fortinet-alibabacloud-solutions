@@ -75,5 +75,7 @@ This Terraform configuration creates the following Alibaba Cloud resources:
 - VSwitches: External and internal VSwitches for network segmentation.
 - Security Groups: Rules for allowing all ingress and egress TCP traffic.
 - Route Table: A route table with a default route pointing to the FortiGate instance.
-- FortiGate Instance: A FortiGate-VM instance with attached ENIs for inspecting traffic.
+- FortiGate Instance (VM04): A FortiGate-VM instance using ecs.c7 instance family, with 2x attached ENIs for inspecting traffic.
+- License: BYOL (Bring Your Own License) image has been selected.
+- FortiOS Version: v7.4.4
 - ENI: 2x Elastic Network Interfaces attached to the FortiGate for internal and external network traffic.
